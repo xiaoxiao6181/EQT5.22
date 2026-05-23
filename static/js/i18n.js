@@ -6,6 +6,9 @@ const I18n = {
   		{name:'简体中文',value:'zh-CN'},
 		{name:'繁体中文',value:'tw-CN'},
   		{name:'English',value:'en-US'},
+	  	{name:'Türkiye',value:'teq'},
+		{name:'Nederland',value:'hl'},
+  		{name:'Français',value:'fa'},
   ],
   // 初始化
   init: function(lang) {
