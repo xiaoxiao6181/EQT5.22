@@ -7,7 +7,7 @@
         <meta content="black" name="apple-mobile-web-app-status-bar-style">
         <meta content="telephone=no" name="format-detection">
         <meta content="email=no" name="format-detection">
-        <title>登陆</title>
+        <title>登录</title>
         <style type="text/css">
             html {
                 font-size: 40px;
@@ -26,7 +26,19 @@
                         <br>
                         <div id="langlist" style="display: none;position: absolute;right: 10px;margin-top: 10px;width: 2.5rem;line-height: 30px;text-align: center;
 				    background: rgb(255,255,255,0.2);border-radius: 10px;">
-                
+                  <!--          <span  onclick="changelang('zh-CN')">简体中文</span>
+                            <br>
+                            <span  onclick="changelang('en-US')">English</span> -->
+                   <!--         <br>
+                            <span id="langth" onclick="changelang('th')">ภาษาไทย</span>
+                            <br>
+                            <span id="langcng" onclick="changelang('hk')">繁体中文</span>
+                            <br>
+                            <span id="langth" onclick="changelang('jp')">日本语</span>
+                            <br>
+                            <span id="langth" onclick="changelang('in')">हिन्दी</span>
+                            <br>
+                            <span id="langth" onclick="changelang('kor')">한국어</span> -->
                         </div>
                     </div>
                     <div class="t_logo" style="    margin-top: 2rem;">
@@ -46,6 +58,7 @@
                             </li>
                             <li>
                                 <input type="button" value="登陆" id="login_btn" data-i18n-value="login.loginButton">
+
                             </li>
                             <!--<li><input type="button" value="会员注册" id="reg_btn"></li>-->
                         </ul>
@@ -53,8 +66,8 @@
                             <a id="reg_btn" >-- <span data-i18n="login.registerLink"></span> --</a>
                             <br>
                             <br>
-                            <a href="javascript:;" onclick="forget()"  data-i18n="login.forgotPassword">--忘记密码--</a>
-                            <!--<a href="https://line.me/ti/p/9YACSpNQuN" target="_blank" style="float:right">在线客服</a>-->
+                         -- <a class="kefu"   data-i18n="login.customerService">在线客服</a>--
+                           
                         </p>
                     </div>
                 </div>
@@ -83,7 +96,7 @@
 			    
 			});
 			function forget(){
-				msg(I18n.t('common.prompt'), I18n.t('login.forget'), 1, '#')
+  			  msg(I18n.t('common.prompt'), I18n.t('login.forget'), 1, '#')
 			}
 			function changelang(t) {
 			    if (t == "list") {
@@ -105,6 +118,7 @@
 				AjaxUtil.get('/index/index/getConfigInfo').then(res => {
 					localStorage.setItem('config',JSON.stringify(res.data))
 					$(".t_logo img").attr('src',baseConfig.baseUrl +res.data.login_img)
+					$(".kefu").attr('href',res.data.service)
 					// $("#service").attr('src',res.data.service)  
 				})
                 $('#reg_btn').click(function() {
